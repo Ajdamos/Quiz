@@ -1,0 +1,39 @@
+body{
+    height: 100%;
+    background-color: #CFDBD5;
+    justify-content: center;
+}
+.MainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    margin-bottom: 100px;
+    margin-top: 30px;
+
+}
+.button { 
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.notChosen{
+    background-color: #E8EDDF;
+}
+.chosen{
+    background-color: #F5CB5C;
+}
+.Main{
+    background-color: #FAB2EA;
+}
