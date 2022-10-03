@@ -2,25 +2,28 @@ import React, { useEffect, useState } from 'react'
 import './App.css'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {Percent} from './Helper'
-import EndQuiz from './EndQuiz'
 import ContextData from './Context'
 import list from './list'
 const Question = () => {
     const {stage, setStage} = useContext(ContextData)
     const {scoreQueue, setScoreQueue} = useContext(ContextData)
-    const [current, setCurrent] = useState("none")
+    const [negate, setNegate] = useState(1);
     const navigate = useNavigate()
     function handleAnswer(points) {
       if (stage === list.length-1){
         setStage(0)
-        setScoreQueue(scoreQueue => [...scoreQueue, points])
+        setScoreQueue(scoreQueue => [...scoreQueue, points * negate])
         navigate('/endquiz')
       }
-      else if (current < 3 && current > -3){
+      else if (points < 6 && points > -6){
+        if(stage > 9) {
+          setNegate(-1)
+        }
         setStage(stage + 1);
-        setScoreQueue(scoreQueue => [...scoreQueue, points])
-        setCurrent("none")
+        setScoreQueue(scoreQueue => [...scoreQueue, points * negate])
+        console.log(points * negate)
+        
+
       }
     
       else return null
@@ -40,39 +43,20 @@ const Question = () => {
       console.log(temp)
       setScoreQueue(temp)
     }
-    function ButtonBack () {
-      if (stage){
-        return "Back"
-      }
-      else return "vratit"
-    }
-    function ButtonEnd () {
-      if (stage === list.length -1){
-        return "ukoncit te"
-      }
-      else return "Dalsi otazka"
-    }
-
-    function classHandler(number){
-      if (number === current)return "button chosen"
-      else return "button notChosen"
-    }
   return (
     
     <div className='MainContainer'>
-        <h1>{list[stage]}</h1>
-        <div className='container'>            
-        <div className={classHandler(2)} onClick={() => setCurrent(2)}>Jsem s tím velmi spokojen</div>
-        <div className={classHandler(1)} onClick={() => setCurrent(1)}>Spíše souhlasím</div>
-        <div className={classHandler(0)} onClick={() => setCurrent(0)}>Je mi to nějak jedno</div>
-        <div className={classHandler(-1)} onClick={() => setCurrent(-1)}>Spíše nesouhlasím</div>
-        <div className={classHandler(-2)} onClick={() => setCurrent(-2)}>Absolutně s tím nesouhlasím</div>
+      <p className='percent'>{stage + 1} / {list.length}</p>
+      <h2 className='ask'>{list[stage]}</h2>    
+        <div className='container'>   
+        <div className="button" onClick={() => handleAnswer(5)}>Jsem s tím velmi spokojen</div>
+        <div className="button" onClick={() => handleAnswer(3)}>Spíše souhlasím</div>
+        <div className="button" onClick={() => handleAnswer(-1)}>Je mi to nějak jedno</div>
+        <div className="button" onClick={() => handleAnswer(-3)}>Spíše nesouhlasím</div>
+        <div className="button" onClick={() => handleAnswer(-5)}>Absolutně s tím nesouhlasím</div>
         </div>
-        <div className='container'>
-        <div className='button Main' onClick={() => handleBack()}>{ButtonBack()}</div>
-        <div className='button Main' onClick={() => handleAnswer(current)}>{ButtonEnd()}</div>
-        </div>
-        <p>{Percent(stage, list.length)}</p>
+        <p className='pointer' onClick={() => handleBack()}>🠔</p>
+
     </div> 
     )
 }

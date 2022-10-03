@@ -1,39 +1,110 @@
 body{
-    height: 100%;
-    background-color: #CFDBD5;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #fff;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+[onClick] {
+    cursor:pointer;
+}
+h1{
+    text-decoration: underline #3eb2bc 2px;
+    text-underline-offset: 8px;
+
+}
+p{
+    text-decoration: underline none;
+}
+ul {
+    list-style: none;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+  }
+  
+ul li:before {
+    content: '✓';
+}
+input{
+
+    border: #000 solid 1px;
+    height: 2em;
+    width: 20em;
+    border-radius: 32px;
+    text-align: center;
 }
 .MainContainer{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    text-align: center;
+    padding: 100px;
+    width: 40vw;
+    min-height:40vh;
+    border: #000 solid 1px;
+    box-shadow: 10px 10px #3eb2bc;
+    border-radius: 20px;
+}
+.color{
+    
+}
+.Button{
+    color: #fff;
+    background-color: #3eb2bc;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    text-decoration: underline none;
+
+    justify-content: center;
+    height: 3em;
+    width: 20em;
+    border-radius: 12px;
+    cursor:pointer;
 }
 .container {
     display: flex;
-    margin-bottom: 100px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 40vh;
+    align-items: center;
+    margin-bottom: 10px;
     margin-top: 30px;
+
 
 }
 .button { 
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
+    margin-top: 1em;
+    height: 2.2em;
+    width: 20em;
+    border-radius: 12px;
+    background-color: #e5e5e5;
+    color: #000;
     display: flex;
-    width: 150px;
-    height: 50px;
-    border: 1px solid black;
-    border-radius: 10px;
     justify-content: center;
     align-items: center;
-    
+    cursor:pointer;
+}
+.button:hover{
+    background-color: #3eb2bc;
+    color: #fff;
 }
 .notChosen{
-    background-color: #E8EDDF;
+    background-color: #e5e5e5;
 }
-.chosen{
-    background-color: #F5CB5C;
+
+
+.percent{
+    margin-left: 36.5vw;
 }
-.Main{
-    background-color: #FAB2EA;
+.pointer{
+    cursor:pointer
+}
+.ask{
+    width: 100%;
+    min-height: 60px;
 }

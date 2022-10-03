@@ -8,7 +8,15 @@ export default function StartQuiz() {
   return (
     <div className='MainContainer'>
         <h1>StartQuiz</h1>
-        <Link to="quiz"><div className='button chosen' onClick={() => setScoreQueue([])}>zacni quiz</div></Link>
+        <p>Lorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsim
+        Lorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsimLorem ipsim
+        </p>
+        <Link to="quiz"><p className='Button' onClick={() => setScoreQueue([])}>Udělat Test</p></Link>
+        <ul>
+          <li> Lorem ipsum dotor</li>
+          <li> Lorem ipsum dotor</li>
+          <li> Lorem ipsum dotor</li>
+        </ul>
     </div>
   )
 }
